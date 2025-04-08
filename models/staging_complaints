@@ -1,0 +1,15 @@
+-- Staging table for NYC 311 Complaints data
+WITH complaints_cleaned AS (
+    SELECT 
+        unique_key,
+        created_date,
+        closed_date,
+        complaint_type,
+        descriptor,
+        borough,
+        latitude,
+        longitude
+    FROM `project_id.dataset_id.nyc_311_complaints`
+    WHERE created_date IS NOT NULL
+)
+SELECT * FROM complaints_cleaned;
